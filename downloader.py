@@ -1,0 +1,50 @@
+import os
+import wget
+import logging
+import ssl
+
+# IMM Data Portal causes SSL error when this line uncommented.
+ssl._create_default_https_context = ssl._create_unverified_context
+logging.basicConfig()
+logging.root.setLevel(logging.NOTSET)
+
+dataset_links = {
+    "Hourly transportation data": {
+        'hourly_transportation_202001.csv': "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/511c5034-0a1c-4c77-9831-157f30e62aee/download/hourly_transportation_202001.csv",
+        'hourly_transportation_202002.csv': "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/de831d1d-85a3-478e-8167-72223ee7ffaa/download/hourly_transportation_202002.csv",
+        "hourly_transportation_202003.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/fb49c73d-f0f5-439c-ad7b-64f3494a2d9f/download/hourly_transportation_202003.csv",
+        "hourly_transportation_202004.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/75e25417-36df-4822-8a18-578f0f7a584a/download/hourly_transportation_202004.csv",
+        "hourly_transportation_202005.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/3497a04f-5b78-44f3-8bdc-8c30ab19af88/download/hourly_transportation_202005.csv",
+        "hourly_transportation_202006.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/4f1c434d-bd1f-4937-b88f-6e2df1a85dc5/download/hourly_transportation_202006.csv",
+        "hourly_transportation_202007.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/0fdf0efb-2ae3-4ff5-a106-0c6c7392f6d4/download/hourly_transportation_202007.csv",
+        "hourly_transportation_202008.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/a195a42f-727a-4f1e-ad55-471306788c99/download/hourly_transportation_202008.csv",
+        "hourly_transportation_202009.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/5b3b12b7-575d-4b55-b497-62e3b544edb0/download/hourly_transportation_202009.csv",
+        "hourly_transportation_202010.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/d5b65aa8-8cf0-4034-a827-17e170894b38/download/hourly_transportation_202010.csv",
+        "hourly_transportation_202011.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/4691d5de-689e-4b0a-b5e7-5e54f893edfc/download/hourly_transportation_202011.csv",
+        "hourly_transportation_202012.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/0d822ea9-bd44-4f09-a2aa-27f1b37e4538/download/hourly_transportation_202012.csv",
+        'hourly_transportation_202101.csv': "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/004994f5-3a50-4721-8787-41d4940bdaee/download/hourly_transportation_202101.csv",
+        'hourly_transportation_202102.csv': "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/a22578e4-3c72-454b-a9e4-d843b7e649e8/download/hourly_transportation_202102.csv",
+        "hourly_transportation_202103.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/ef77dde9-9e0c-4417-a939-3ca4013ef919/download/hourly_transportation_202103.csv",
+        "hourly_transportation_202104.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/7a86010b-2c38-4639-a13d-87155649b234/download/hourly_transportation_202104.csv",
+        "hourly_transportation_202105.csv": "https://data.ibb.gov.tr/dataset/a6855ce7-4092-40a5-82b5-34cf3c7e36e3/resource/42b4a830-fee6-4765-9daf-3f3884f09b4b/download/hourly_transportation_202105.csv",
+    },
+    "Railway station-based data": {
+        'railway_station_based_data.csv': "https://data.ibb.gov.tr/tr/dataset/ae3b2e4b-073a-48d0-8ef3-f28f19bcb19c/resource/604776d6-e99f-469c-bf25-25ccadc5e89b/download/rayl-sistemler-istasyon-bazl-yolcu-ve-yolculuk-saylar.csv"
+    }
+
+}
+
+traffic_index_api_url = "https://api.ibb.gov.tr/tkmservices/api/TrafficData/v1/TrafficIndexHistory/"
+
+def download_dataset():
+
+    for dataset, info in dataset_links.items():
+        logging.info(f"{dataset} is downloading...")
+        for path, url in info.items():
+            if not os.path.isfile(f'./data/{path}'):
+                filename = wget.download(url, out="./data")
+                logging.info(f"{filename} is downloaded.")
+            else:
+                logging.warning(f'{path} was already downloaded. Skipping...')
+    logging.info("Download completed!\n")
+

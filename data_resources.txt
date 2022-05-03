@@ -1,0 +1,62 @@
+## Dataset
+
+## Digital Twin components
+
+# Otopark listesi
+# https://data.ibb.gov.tr/tr/dataset/ispark-otopark-detay-bilgileri-web-servisi
+
+# Isbike istasyonları
+# https://data.ibb.gov.tr/tr/dataset/all-isbike-stations-web-service
+
+# metro ağları
+# https://data.ibb.gov.tr/tr/dataset/metro-istanbul-ag-haritasi-listesi-web-servisi
+
+# Metroların konumları
+# https://data.ibb.gov.tr/tr/dataset/metro-istanbul-dil-bilgisine-gore-adres-listesi-web-servisi
+
+# Mahalleler, sokaklar ve ilçeler
+# 
+
+# sosyo ekonomik skorlar
+# https://data.ibb.gov.tr/tr/dataset/mahallem-istanbul-projesi-ses-sosyo-ekonomik-statu-skorlari
+
+# mahalle bazlı bina sayıları
+# https://data.ibb.gov.tr/tr/dataset/mahalle-bazli-bina-analiz-verisi
+
+# Metro gat ve yön bilgisi
+# https://data.ibb.gov.tr/tr/dataset/metro-istanbul-hat-ve-yon-bilgisi-web-servisleri
+
+# rayli ulaşım vektör verisi
+# https://data.ibb.gov.tr/tr/dataset/rayli-ulasim-hatlari-vektor-verisi
+
+############################################################
+
+## Digital Twin Properties
+
+# # bilet fiyat listesi
+# https://data.ibb.gov.tr/tr/dataset/metro-istanbul-bilet-fiyat-listesi-web-servisi
+
+# Metro istanbul teknik durum
+# https://data.ibb.gov.tr/tr/dataset/metro-istanbul-teknik-durum-listesi-web-servisleri
+
+# Metro istasyon listesi
+# https://data.ibb.gov.tr/tr/dataset/metro-istanbul-istasyonlari-listesi-web-servisleri
+
+############################################################
+
+## DATA ve Telemetry Verileri
+
+# Planlanan sefer saatleri
+# https://data.ibb.gov.tr/tr/dataset/iett-planlanan-sefer-saati-web-servisi
+
+# Gerçekleşen sefer
+# https://data.ibb.gov.tr/tr/dataset/sefer-gerceklesme-web-servisi
+
+# ibb360 web servisi
+# https://data.ibb.gov.tr/tr/dataset/iett-ibb360-web-servisi
+
+# gtfs data
+# https://data.ibb.gov.tr/tr/dataset/public-transport-gtfs-data
+
+# günlük araç sayımı
+# https://data.ibb.gov.tr/tr/dataset/istanbul-trafik-indeksi
