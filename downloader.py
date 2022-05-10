@@ -63,3 +63,7 @@ def download_dataset():
                 logging.warning(f'{path} was already downloaded. Skipping...')
     logging.info("Download completed!\n")
 
+    file_paths = {k:list(v.keys()) for k, v in dataset_links.items()}
+
+    return f"./data/", file_paths
+
