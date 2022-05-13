@@ -10,7 +10,7 @@ def preprocess_hourly_transportation(path, file_paths):
 
     return data_frames
 
-def preprocess_railway_stations(path):
+def preprocess_stations(path):
     df = pd.read_csv(path)
     return df
 
@@ -56,7 +56,7 @@ def preprocess_gtfs_data(path):
 
 def preprocess_all(path, file_paths):
     hourly_transportation_by_months = preprocess_hourly_transportation(path, file_paths["Hourly transportation data"])
-    railway_stations = preprocess_railway_stations(f"{path}{file_paths['Railway station-based data'][0]}")
+    stations = preprocess_stations(f"{path}{file_paths['Railway station-based data'][0]}")
 
     # data about districts and buildings
     fix_district_data(f"{path}{file_paths['District and Social Economical Scores'][0]}")
@@ -70,7 +70,8 @@ def preprocess_all(path, file_paths):
 
     return {
         'hourly transportation': hourly_transportation_by_months,
-        'railway_stations': railway_stations,
+        'railway_stations': stations,
         'district_data': district_data,
-        'daily_traffic_index': daily_traffic_index
+        'daily_traffic_index': daily_traffic_index,
+        'stations_and_dense': ""
     }
