@@ -12,6 +12,7 @@
 
 <h4> How to run? </h4> 
   1. Define your Azure .env variables in `variables.env`. File format should exactly be like;
+ 
   ```json
   {
     "AZURE_URL": <digital-twin-host-url>,
